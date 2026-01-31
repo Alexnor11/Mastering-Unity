@@ -5,9 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	private Rigidbody _rigidBody;
-    [SerializeField, Tooltip("Ускорение")] private float _movementAcceleration = 2;
-    [SerializeField, Tooltip("Максимальная скорость")] private float _movementVelocityMax = 2;
-    [SerializeField, Tooltip("Замедление")] private float _movementFriction = 0.1f;
+    [SerializeField, Tooltip("Ускорение")] 
+    private float _movementAcceleration = 2;
+    
+    [SerializeField, Tooltip("Максимальная скорость")] 
+    private float _movementVelocityMax = 2;
+    
+    [SerializeField, Tooltip("Замедление")] 
+    private float _movementFriction = 0.1f;
+    
     [SerializeField] private float _jumpVelocity = 20;
     [SerializeField] private float _extraGravity = 40;
 

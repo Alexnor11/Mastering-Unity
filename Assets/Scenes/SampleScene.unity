@@ -572,6 +572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6315c36124bc4b47a9928174d7476f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementAcceleration: 50
+  _movementVelocityMax: 10
+  _movementFriction: 0.1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

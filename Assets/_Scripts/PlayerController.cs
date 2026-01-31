@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	private Rigidbody _rigidBody;
-    [SerializeField, Tooltip("Acceleration")] private float _movementAcceleration = 2;
-    [SerializeField, Tooltip("VelocityMax")] private float _movementVelocityMax = 2;
-    [SerializeField, Tooltip("Friction")] private float _movementFriction = 0.1f;
+    [SerializeField, Tooltip("Ускорение")] private float _movementAcceleration = 2;
+    [SerializeField, Tooltip("Максимальная скорость")] private float _movementVelocityMax = 2;
+    [SerializeField, Tooltip("Замедление")] private float _movementFriction = 0.1f;
+    [SerializeField] private float _jumpVelocity = 20;
+    [SerializeField] private float _extraGravity = 40;
 
     private void Start()
     {
@@ -33,6 +35,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) == Input.GetKey(KeyCode.DownArrow))
            curSpeed.z -= (_movementFriction * curSpeed.z);
+
+        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(curSpeed.y) < 1)
+            curSpeed.y += _jumpVelocity;
+        else
+            curSpeed.y -= _extraGravity * Time.deltaTime;
 
         curSpeed.x = Mathf.Clamp(curSpeed.x, _movementVelocityMax * -1, _movementVelocityMax);
         curSpeed.z = Mathf.Clamp(curSpeed.z, _movementVelocityMax * -1, _movementVelocityMax);

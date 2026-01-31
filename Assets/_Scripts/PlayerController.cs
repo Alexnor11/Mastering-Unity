@@ -1,13 +1,13 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
 	private Rigidbody _rigidBody;
-    [SerializeField, Tooltip("Ускорение")] private float _movementAcceleration = 2;
-    [SerializeField, Tooltip("Максимальная скорость")] private float _movementVelocityMax = 2;
-    [SerializeField, Tooltip("Замедление")] private float _movementFriction = 0.1f;
+    [SerializeField, Tooltip("РЈСЃРєРѕСЂРµРЅРёРµ")] private float _movementAcceleration = 2;
+    [SerializeField, Tooltip("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ")] private float _movementVelocityMax = 2;
+    [SerializeField, Tooltip("Р—Р°РјРµРґР»РµРЅРёРµ")] private float _movementFriction = 0.1f;
     [SerializeField] private float _jumpVelocity = 20;
     [SerializeField] private float _extraGravity = 40;
 

@@ -15,4 +15,11 @@ public class PickUpItem : MonoBehaviour
         newRotation.y += (_rotationSpeed * Time.deltaTime);
         transform.eulerAngles = newRotation;
     }
+
+    public void OnPickeUp(GameObject whoPickeUp)
+    {
+        s_objectsCollected++;
+        Debug.Log(s_objectsCollected + " items picked up");
+        Destroy(gameObject);
+    }
 }

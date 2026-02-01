@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -50,6 +51,15 @@ public class PlayerController : MonoBehaviour
         curSpeed.x = Mathf.Clamp(curSpeed.x, _movementVelocityMax * -1, _movementVelocityMax);
         curSpeed.z = Mathf.Clamp(curSpeed.z, _movementVelocityMax * -1, _movementVelocityMax);
 
-        _rigidBody.velocity = curSpeed;
+        _rigidBody.velocity = curSpeed;       
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<PickUpItem>())
+        {
+            PickUpItem item = other.gameObject.GetComponent<PickUpItem>();
+            item.OnPickeUp(this.gameObject);
+        }
     }
 }

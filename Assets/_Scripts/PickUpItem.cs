@@ -1,0 +1,18 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PickUpItem : MonoBehaviour
+{
+    [SerializeField, Tooltip("Скорость вращения")]
+    private float _rotationSpeed;
+    
+    static int s_objectsCollected = 0;
+
+    private void Update()
+    {
+        Vector3 newRotation = transform.eulerAngles;
+        newRotation.y += (_rotationSpeed * Time.deltaTime);
+        transform.eulerAngles = newRotation;
+    }
+}

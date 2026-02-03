@@ -88,5 +88,14 @@ public class HealthManager : MonoBehaviour
                 }
             }
 		}
+		// переключение дрожания камеры для игрока
+		if (GetComponent<PlayerController>())
+		{
+			CameraShake camShake = Camera.main.GetComponent<CameraShake>();
+			if (camShake)
+			{
+				camShake.enabled = (bool)(_invincibilityFramesCur > 0);
+			}
+		}
     }
 }

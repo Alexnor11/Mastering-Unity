@@ -647,6 +647,7 @@ MonoBehaviour:
   _movementFriction: 0.1
   _jumpVelocity: 20
   _extraGravity: 40
+  _bulletToSpawn: {fileID: 7447895240866456582, guid: eb8ddb488ad7e744a8c8ccb2c53e68e8, type: 3}
 --- !u!114 &1532498453
 MonoBehaviour:
   m_ObjectHideFlags: 0

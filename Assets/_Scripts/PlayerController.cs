@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private float _jumpVelocity = 20;
     [SerializeField] private float _extraGravity = 40;
+    [SerializeField] GameObject _bulletToSpawn;
+    [Tooltip("Направление игрока")]
+    Vector3 _curFacing = Vector3.zero;
 
     private void Start()
     {
@@ -36,6 +39,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
             curSpeed.z -= (_movementAcceleration * Time.deltaTime);
 
+        if(curSpeed.x != 0 && curSpeed.z != 0)
+        {
+            _curFacing = curSpeed.normalized;
+        }
+        // Выстрелить?
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            GameObject newBullet = Instantiate(_bulletToSpawn, transform.position,
+                Quaternion.identity);
+            Bullet bullet = newBullet.GetComponent<Bullet>();
+            if (bullet)
+            {
+                bullet.SetDirection(new Vector3(_curFacing.x, 0f, _curFacing.z));
+            }
+        }
+
 
         if (Input.GetKey(KeyCode.RightArrow) == Input.GetKey(KeyCode.LeftArrow))
             curSpeed.x -= (_movementFriction * curSpeed.x);
@@ -51,7 +70,8 @@ public class PlayerController : MonoBehaviour
         curSpeed.x = Mathf.Clamp(curSpeed.x, _movementVelocityMax * -1, _movementVelocityMax);
         curSpeed.z = Mathf.Clamp(curSpeed.z, _movementVelocityMax * -1, _movementVelocityMax);
 
-        _rigidBody.velocity = curSpeed;       
+        _rigidBody.velocity = curSpeed;
+        
     }
 
     private void OnTriggerEnter(Collider other)

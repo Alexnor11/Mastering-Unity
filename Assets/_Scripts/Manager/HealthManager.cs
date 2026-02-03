@@ -72,5 +72,21 @@ public class HealthManager : MonoBehaviour
 		}
 		if(IsDead())
 			GameObject.Destroy(gameObject);
+
+        // обработка видимости объекта
+        if (GetComponent<MeshRenderer>())
+		{
+			if (_invincibilityFramesCur > 0)
+			{
+				if (GetComponent<MeshRenderer>().enabled == true)
+				{
+					GetComponent<MeshRenderer>().enabled = false;
+				}
+                else
+                {
+                    GetComponent<MeshRenderer>().enabled = true;
+                }
+            }
+		}
     }
 }

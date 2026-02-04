@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementAcceleration: 50
-  _movementVelocityMax: 10
+  _movementVelocityMax: 5
   _movementFriction: 0.1
   _jumpVelocity: 20
   _extraGravity: 40

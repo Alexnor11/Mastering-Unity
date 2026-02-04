@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 3938716358077670203}
   - component: {fileID: 1438367335770094722}
   - component: {fileID: 7368498568096626976}
+  - component: {fileID: -901204700434543341}
   m_Layer: 0
   m_Name: EnemyObj_Spikes
   m_TagString: Untagged
@@ -640,6 +641,23 @@ MonoBehaviour:
   _healthChange: -5
   _applyToTarget: 0
   _destroyOnCollision: 0
+--- !u!114 &-901204700434543341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729821973462739834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb78bddd4d5d0242965ea1a2dce58ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthMax: 10
+  _HealthCur: 10
+  _invincibilityFramesMax: 1
+  _invincibilityFramesCur: 0
+  _isDead: 0
 --- !u!1 &8958016348004965004
 GameObject:
   m_ObjectHideFlags: 0

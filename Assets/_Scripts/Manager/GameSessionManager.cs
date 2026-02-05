@@ -37,4 +37,7 @@ public class GameSessionManager : MonoBehaviour
 			Debug.Log("Player lives remaining: " + _playerLives);
 		}
 	}
+
+	public int GetCoins() { return PickUpItem.s_objectsCollected; }
+	public int GetLives() { return _playerLives; }
 }

@@ -113,4 +113,7 @@ public class HealthManager : MonoBehaviour
         _HealthCur = _healthMax;
         _invincibilityFramesCur = 0;
     }
+
+    public float GetHealthMax() { return _healthMax; }
+    public float GetHealthCur() { return _HealthCur; }
 }

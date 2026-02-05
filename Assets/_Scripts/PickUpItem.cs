@@ -7,7 +7,7 @@ public class PickUpItem : MonoBehaviour
     [SerializeField, Tooltip("Скорость вращения")]
     private float _rotationSpeed;
     
-    static int s_objectsCollected = 0;
+    public static int s_objectsCollected = 0;
 
     private void Update()
     {

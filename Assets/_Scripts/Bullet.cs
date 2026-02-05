@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
         //Vector3 newPos = transform.position;
         //newPos += _direction * (_speed * Time.deltaTime);
         //transform.position = newPos;
-        transform.Translate(0, 0, _speed * Time.deltaTime);
+        transform.Translate(0, 0, _speed * Time.deltaTime);        
     }
     public void SetDirection(Vector3 direction)
     {

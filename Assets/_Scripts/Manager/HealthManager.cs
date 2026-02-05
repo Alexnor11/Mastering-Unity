@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-	[SerializeField, Tooltip("Максимальный уровень здоровья")]
-	private float _healthMax = 10;
-	[SerializeField, Tooltip("Текущее значение здоровья")]
-	private float _HealthCur = 10;
-	[SerializeField, Tooltip("Секунды невосприимчивости к урону")]
-	private float _invincibilityFramesMax = 1;
-	[SerializeField, Tooltip("Оставшиеся секунды невосприимчивости")]
-	private float _invincibilityFramesCur = 0;
-	[SerializeField, Tooltip("Мертв ли объект")]
-	private bool _isDead = false;
+    [SerializeField, Tooltip("Максимальный уровень здоровья")]
+    private float _healthMax = 10;
+    [SerializeField, Tooltip("Текущее значение здоровья")]
+    private float _HealthCur = 10;
+    [SerializeField, Tooltip("Секунды невосприимчивости к урону")]
+    private float _invincibilityFramesMax = 1;
+    [SerializeField, Tooltip("Оставшиеся секунды невосприимчивости")]
+    private float _invincibilityFramesCur = 0;
+    [SerializeField, Tooltip("Мертв ли объект")]
+    private bool _isDead = false;
 
-	
+
     private void Update()
     {
-        if(_invincibilityFramesCur > 0)
-		{
-			_invincibilityFramesCur -= Time.deltaTime;
-			if(_invincibilityFramesCur < 0)
-			{
-				_invincibilityFramesCur = 0;
-			}
-		}
+        if (_invincibilityFramesCur > 0)
+        {
+            _invincibilityFramesCur -= Time.deltaTime;
+            if (_invincibilityFramesCur < 0)
+            {
+                _invincibilityFramesCur = 0;
+            }
+        }
 
         // обработка видимости объекта
         if (GetComponent<MeshRenderer>())
@@ -40,7 +40,7 @@ public class HealthManager : MonoBehaviour
                 {
                     GetComponent<MeshRenderer>().enabled = true;
                 }
-            }else
+            } else
             {
                 GetComponent<MeshRenderer>().enabled = true;
             }
@@ -49,24 +49,25 @@ public class HealthManager : MonoBehaviour
         //	GameObject.Destroy(gameObject);
 
         if (_isDead)
-		{
-			if (GetComponent<PlayerController>())
-			{
-				GameSessionManager.Instance.OnPlayerDeath(gameObject);
-			}
-			else
-				GameObject.Destroy(gameObject);
-		}
-        
-		// переключение дрожания камеры для игрока
-		if (GetComponent<PlayerController>())
-		{
-			CameraShake camShake = Camera.main.GetComponent<CameraShake>();
-			if (camShake)
-			{
-				camShake.enabled = (bool)(_invincibilityFramesCur > 0);
-			}
-		}
+        {
+            if (GetComponent<PlayerController>())
+            {
+                GameSessionManager.Instance.OnPlayerDeath(gameObject);
+            }
+            else
+                GameObject.Destroy(gameObject);
+        }
+
+        // переключение дрожания камеры для игрока
+        if (GetComponent<PlayerController>())
+        {
+            CameraShake camShake = Camera.main.GetComponent<CameraShake>();
+            if (camShake)
+            {
+                camShake.enabled = (bool)(_invincibilityFramesCur > 0);
+            }
+        }
+
     }
     public float AdjustCurHealth(float change)
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSessionManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GameSessionManager : MonoBehaviour
 	private int _playerLives = 3;
 	[SerializeField, Tooltip("Место возраждение игрока")]
 	private Transform _respawnLocation;
+	[SerializeField] private GameObject _gameOverObj;
+	[SerializeField] float _returnToMenuCountdown = 0;
+
 	static public GameSessionManager Instance;
 
     private void Awake()
@@ -15,13 +19,28 @@ public class GameSessionManager : MonoBehaviour
         Instance = this;
     }
 
-	public void OnPlayerDeath(GameObject player)
+    private void Update()
+    {
+        if(_returnToMenuCountdown > 0)
+		{
+			_returnToMenuCountdown -= Time.deltaTime;
+			if(_returnToMenuCountdown < 0)
+			{
+				SceneManager.LoadScene("TitleMenu");
+			}
+		}
+    }
+
+    public void OnPlayerDeath(GameObject player)
 	{
 		if (_playerLives <= 0)
 		{
 			GameObject.Destroy(player.gameObject);
 			Debug.Log("Game over!");
-		}
+            
+			_gameOverObj.SetActive(true);
+            _returnToMenuCountdown = 4;
+        }
 		else
 		{
 			_playerLives--;
@@ -35,7 +54,7 @@ public class GameSessionManager : MonoBehaviour
 				player.transform.position = _respawnLocation.position;
 			}
 			Debug.Log("Player lives remaining: " + _playerLives);
-		}
+		}		
 	}
 
 	public int GetCoins() { return PickUpItem.s_objectsCollected; }

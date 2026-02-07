@@ -1078,8 +1078,8 @@ MonoBehaviour:
   _itemToSpawn: {fileID: 7083104946007328760, guid: 57f57dc5963a9f94eb5a2e9a1d1b351d, type: 3}
   _itemCount: 30
   _spawnZone: {fileID: 660542719}
-  _spawnShare: 1
-  _rotationSpeed: {x: 0, y: 0, z: 0}
+  _spawnShare: 0
+  _rotationSpeed: {x: 50, y: 50, z: 50}
 --- !u!65 &660542719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1110,7 +1110,7 @@ Transform:
   m_GameObject: {fileID: 660542717}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3481,7 +3481,7 @@ MonoBehaviour:
   _itemCount: 6
   _spawnZone: {fileID: 2063087995}
   _spawnShare: 1
-  _rotationSpeed: {x: 0, y: 0, z: 0}
+  _rotationSpeed: {x: 0, y: 10, z: 0}
 --- !u!65 &2063087995
 BoxCollider:
   m_ObjectHideFlags: 0

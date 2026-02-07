@@ -19,6 +19,7 @@ public class ItemSpawnZone : MonoBehaviour
         Count
     }
 
+    
     [SerializeField, Tooltip("Скорость вращения")]
     private Vector3 _rotationSpeed;
 

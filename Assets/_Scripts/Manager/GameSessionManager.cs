@@ -54,9 +54,16 @@ public class GameSessionManager : MonoBehaviour
 				player.transform.position = _respawnLocation.position;
 			}
 			Debug.Log("Player lives remaining: " + _playerLives);
-		}		
-	}
+		}
 
-	public int GetCoins() { return PickUpItem.s_objectsCollected; }
+        // обнуление скорости этого объекта
+		Rigidbody rb = player.transform.GetComponent<Rigidbody>();
+		if (rb)
+		{
+			rb.velocity = Vector3.zero;
+		}
+    }
+
+    public int GetCoins() { return PickUpItem.s_objectsCollected; }
 	public int GetLives() { return _playerLives; }
 }

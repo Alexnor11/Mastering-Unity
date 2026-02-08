@@ -26,7 +26,12 @@ public class HealthManager : MonoBehaviour
                 _invincibilityFramesCur = 0;
             }
         }
-
+        // мгновенная смерть, когда игрок попадает в бесконечную яму
+        float yBounds = -25;
+        if(transform.position.y < yBounds)
+        {
+            _isDead = true;
+        }
         // обработка видимости объекта
         if (GetComponent<MeshRenderer>())
         {

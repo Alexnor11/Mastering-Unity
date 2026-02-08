@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 1438367335770094722}
   - component: {fileID: 7368498568096626976}
   - component: {fileID: -901204700434543341}
+  - component: {fileID: 8695288049121394286}
   m_Layer: 0
   m_Name: EnemyObj_Spikes
   m_TagString: Untagged
@@ -658,6 +659,23 @@ MonoBehaviour:
   _invincibilityFramesMax: 1
   _invincibilityFramesCur: 0
   _isDead: 0
+--- !u!114 &8695288049121394286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729821973462739834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e755ab42aa196418dcc4d4935dc59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainExplosionChunk: {fileID: 1996670909684190617, guid: 6e3f6ff6804cec9499c7f1f1c2936bba, type: 3}
+  _secondaryExplosionChunk: {fileID: 8693951973052261650, guid: a3905e3098e8e3d4e8b17c216d87e686, type: 3}
+  _minChunks: 20
+  _maxChunks: 40
+  _explosionForce: 1500
 --- !u!1 &8958016348004965004
 GameObject:
   m_ObjectHideFlags: 0

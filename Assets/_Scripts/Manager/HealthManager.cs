@@ -56,6 +56,9 @@ public class HealthManager : MonoBehaviour
             }
             else
                 GameObject.Destroy(gameObject);
+            
+            VFXHandler vfx = GetComponent<VFXHandler>();
+            vfx?.SpawnExplosion();
         }
 
         // переключение дрожания камеры для игрока

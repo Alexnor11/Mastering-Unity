@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5835832030068984052}
   - component: {fileID: 948367366925148380}
   - component: {fileID: 3477570694382265887}
+  - component: {fileID: 4687412615971077484}
   m_Layer: 0
   m_Name: BulletObj_Basic
   m_TagString: Untagged
@@ -164,3 +165,15 @@ MonoBehaviour:
   _healthChange: -5
   _applyToTarget: 1
   _destroyOnCollision: 0
+--- !u!114 &4687412615971077484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7447895240866456582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b061839c7a047e42a365fff1dc94d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

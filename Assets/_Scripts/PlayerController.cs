@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _extraGravity = 40;
     [SerializeField] GameObject _bulletToSpawn;
     [Tooltip("Направление игрока")]
-    Vector3 _curFacing = Vector3.zero;
+    Vector3 _curFacing = new Vector3(1, 0, 0);
 
     private void Start()
     {
@@ -31,18 +31,37 @@ public class PlayerController : MonoBehaviour
         Vector3 curSpeed = _rigidBody.velocity;
 
         if (Input.GetKey(KeyCode.RightArrow))
-            curSpeed.x += (_movementAcceleration * Time.deltaTime);
-        if(Input.GetKey(KeyCode.LeftArrow))
-            curSpeed.x -= (_movementAcceleration * Time.deltaTime);
-        if (Input.GetKey(KeyCode.UpArrow))
-            curSpeed.z += (_movementAcceleration * Time.deltaTime);
-        if (Input.GetKey(KeyCode.DownArrow))
-            curSpeed.z -= (_movementAcceleration * Time.deltaTime);
-
-        if(curSpeed.x != 0 && curSpeed.z != 0)
         {
-            _curFacing = curSpeed.normalized;
+            curSpeed.x += (_movementAcceleration * Time.deltaTime);
+            _curFacing.x = 1;
+            _curFacing.z = 0;
         }
+
+        if(Input.GetKey(KeyCode.LeftArrow))
+        { 
+            curSpeed.x -= (_movementAcceleration * Time.deltaTime);
+            _curFacing.x = -1;
+            _curFacing.z = 0;
+
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        { 
+            curSpeed.z += (_movementAcceleration * Time.deltaTime);
+            _curFacing.z = 1;
+            _curFacing.x = 0;
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        { 
+            curSpeed.z -= (_movementAcceleration * Time.deltaTime);
+            _curFacing.z = -1;
+            _curFacing.x = 0;
+        }
+
+        //if(curSpeed.x != 0 && curSpeed.z != 0)
+        //{
+        //    _curFacing = curSpeed.normalized;
+        //}
+
         // Выстрелить?
         if (Input.GetKeyDown(KeyCode.Return))
         {

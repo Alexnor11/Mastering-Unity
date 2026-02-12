@@ -13,4 +13,8 @@ public class TitleMenu : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+    public void QuitApplication()
+    {
+        Application.Quit();
+    }
 }

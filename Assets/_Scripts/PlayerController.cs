@@ -18,12 +18,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _jumpVelocity = 20;
     [SerializeField] private float _extraGravity = 40;
     [SerializeField] GameObject _bulletToSpawn;
+    
+    [SerializeField, Tooltip("Игрок на земле?")]
+    private bool _isGrounded = false;
+    [SerializeField, Tooltip("Основная фигура столкновений игрока.")]
+    Collider _myCollider = null;
+
     [Tooltip("Направление игрока")]
     Vector3 _curFacing = new Vector3(1, 0, 0);
 
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
+        _myCollider = GetComponent<Collider>();
     }
 
     private void Update()
@@ -81,7 +88,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) == Input.GetKey(KeyCode.DownArrow))
            curSpeed.z -= (_movementFriction * curSpeed.z);
 
-        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(curSpeed.y) < 1)
+        //if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(curSpeed.y) < 1)
+        if (Input.GetKeyDown(KeyCode.Space) && CalcIsGrounded())
             curSpeed.y += _jumpVelocity;
         else
             curSpeed.y -= _extraGravity * Time.deltaTime;
@@ -100,5 +108,19 @@ public class PlayerController : MonoBehaviour
             PickUpItem item = other.gameObject.GetComponent<PickUpItem>();
             item.OnPickeUp(this.gameObject);
         }
+    }
+    /// <summary>
+    /// Выполняется проверка ниже объекта игрока.
+    /// Если игрок стоит на твердом предмете, он может прыгнуть
+    /// и выполнить другие действия, недоступные в воздухе.
+    /// </summary>
+
+    bool CalcIsGrounded()
+    {
+        float offset = 0.1f;
+        Vector3 pos = _myCollider.bounds.center;
+        pos.y = _myCollider.bounds.min.y - offset;
+        _isGrounded = Physics.CheckSphere(pos, offset);
+        return _isGrounded;
     }
 }

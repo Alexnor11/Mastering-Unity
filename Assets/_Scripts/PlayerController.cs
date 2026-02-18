@@ -26,18 +26,27 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Направление игрока")]
     Vector3 _curFacing = new Vector3(1, 0, 0);
 
+    //Анимация
+
+    bool _moveInput = false;
+    Animator _myAnimator;
+
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
         _myCollider = GetComponent<Collider>();
+        _myAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         Vector3 curSpeed = _rigidBody.velocity;
 
+        _moveInput = false;
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            _moveInput = true;
             curSpeed.x += (_movementAcceleration * Time.deltaTime);
             _curFacing.x = 1;
             _curFacing.z = 0;
@@ -45,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            _moveInput = true;
             curSpeed.x -= (_movementAcceleration * Time.deltaTime);
             _curFacing.x = -1;
             _curFacing.z = 0;
@@ -52,12 +62,14 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
+            _moveInput = true;
             curSpeed.z += (_movementAcceleration * Time.deltaTime);
             _curFacing.z = 1;
             _curFacing.x = 0;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
+            _moveInput = true;
             curSpeed.z -= (_movementAcceleration * Time.deltaTime);
             _curFacing.z = -1;
             _curFacing.x = 0;
@@ -93,12 +105,14 @@ public class PlayerController : MonoBehaviour
         else
             curSpeed.y -= _extraGravity * Time.deltaTime;
 
+        transform.LookAt(transform.position + new Vector3(_curFacing.x, _curFacing.z));
+
+        UpdateAnimation();
+
         curSpeed.x = Mathf.Clamp(curSpeed.x, _movementVelocityMax * -1, _movementVelocityMax);
         curSpeed.z = Mathf.Clamp(curSpeed.z, _movementVelocityMax * -1, _movementVelocityMax);
 
-        _rigidBody.velocity = curSpeed;
-
-        transform.LookAt(transform.position + new Vector3(_curFacing.x, _curFacing.z));
+        _rigidBody.velocity = curSpeed;       
 
     }
 
@@ -110,7 +124,21 @@ public class PlayerController : MonoBehaviour
     //        item.OnPickeUp(this.gameObject);
     //    }
     //}
-    
+
+    void UpdateAnimation()
+    {
+        if (_myAnimator == null)
+            return;
+        if (_moveInput)
+        {
+            _myAnimator.Play("Run");
+        }
+        else
+        {
+            _myAnimator.Play("Idle");
+        }
+    }
+
     /// <summary>
     /// Выполняется проверка ниже объекта игрока.
     /// Если игрок стоит на твердом предмете, он может прыгнуть

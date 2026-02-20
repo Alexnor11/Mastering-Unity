@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 6869496441975791477}
   - component: {fileID: 196669586272437567}
   m_Layer: 0
-  m_Name: PlayerObj
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,8 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6315c36124bc4b47a9928174d7476f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementAcceleration: 2
-  _movementVelocityMax: 2
+  _movementAcceleration: 50
+  _movementVelocityMax: 3
   _movementFriction: 0.1
   _jumpVelocity: 15
   _extraGravity: 30

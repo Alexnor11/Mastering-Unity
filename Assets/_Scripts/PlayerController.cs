@@ -94,6 +94,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        transform.LookAt(transform.position - new Vector3(_curFacing.x, 0f, _curFacing.z));
+
+        UpdateAnimation();
+
 
         if (Input.GetKey(KeyCode.RightArrow) == Input.GetKey(KeyCode.LeftArrow))
             curSpeed.x -= (_movementFriction * curSpeed.x);
@@ -105,11 +109,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && CalcIsGrounded())
             curSpeed.y += _jumpVelocity;
         else
-            curSpeed.y -= _extraGravity * Time.deltaTime;
-
-        transform.LookAt(transform.position - new Vector3(_curFacing.x, 0f, _curFacing.z));
-
-        UpdateAnimation(); ;
+            curSpeed.y -= _extraGravity * Time.deltaTime;        
 
         curSpeed.x = Mathf.Clamp(curSpeed.x, _movementVelocityMax * -1, _movementVelocityMax);
         curSpeed.z = Mathf.Clamp(curSpeed.z, _movementVelocityMax * -1, _movementVelocityMax);

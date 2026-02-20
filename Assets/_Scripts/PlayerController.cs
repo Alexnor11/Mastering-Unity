@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         //    _curFacing = curSpeed.normalized;
         //}
 
-        // Выстрелить?
+        //Выстрелить ?
         //if (Input.GetKeyDown(KeyCode.Return))
         //{
         //    GameObject newBullet = Instantiate(_bulletToSpawn, transform.position,
@@ -105,8 +105,8 @@ public class PlayerController : MonoBehaviour
         else
             curSpeed.y -= _extraGravity * Time.deltaTime;
 
-        transform.LookAt(transform.position + new Vector3(_curFacing.x, 0f, _curFacing.z));
-
+        transform.LookAt(transform.position - new Vector3(_curFacing.x, 0f, _curFacing.z));
+        
         UpdateAnimation();
 
         curSpeed.x = Mathf.Clamp(curSpeed.x, _movementVelocityMax * -1, _movementVelocityMax);

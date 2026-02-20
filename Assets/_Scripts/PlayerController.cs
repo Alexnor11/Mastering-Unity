@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         else
             curSpeed.y -= _extraGravity * Time.deltaTime;
 
-        transform.LookAt(transform.position + new Vector3(_curFacing.x, _curFacing.z));
+        transform.LookAt(transform.position + new Vector3(_curFacing.x, 0f, _curFacing.z));
 
         UpdateAnimation();
 

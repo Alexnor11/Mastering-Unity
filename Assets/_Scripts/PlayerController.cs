@@ -107,9 +107,9 @@ public class PlayerController : MonoBehaviour
         else
             curSpeed.y -= _extraGravity * Time.deltaTime;
 
-        transform.LookAt(transform.position + new Vector3(_curFacing.x, 0f, _curFacing.z));
+        transform.LookAt(transform.position - new Vector3(_curFacing.x, 0f, _curFacing.z));
 
-        UpdateAnimation();
+        UpdateAnimation(); ;
 
         curSpeed.x = Mathf.Clamp(curSpeed.x, _movementVelocityMax * -1, _movementVelocityMax);
         curSpeed.z = Mathf.Clamp(curSpeed.z, _movementVelocityMax * -1, _movementVelocityMax);

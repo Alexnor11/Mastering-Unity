@@ -91,4 +91,31 @@ public class AIBrain : MonoBehaviour
         /* Действия: Глава 10 */
     }
     #endregion
+
+    #region *** Player Hunting ***
+    float CalcDistanceToPlayer()
+    {
+        return Vector3.Distance(transform.position, _playerObject.transform.position);
+    }
+
+    Vector3 CalcPlayerPos(bool ignoreY = false)
+    {
+        Vector3 playerPos = _playerObject.gameObject.transform.position;
+        if(ignoreY)
+            playerPos.y = transform.position.y;
+        return playerPos;
+    }
+
+    public void MoveTowardsPlayer(float speed)
+    {
+        // перемещение в сторону игрока
+        Vector3 PlayerPos = CalcPlayerPos(true);
+        Vector3 newPos = transform.position;
+        PlayerPos.y = transform.position.y;
+        newPos += (PlayerPos - transform.position).normalized * (speed * Time.deltaTime);
+        transform.position = newPos;
+        // направление на игрока
+        transform.LookAt(PlayerPos);
+    }
+    #endregion
 }

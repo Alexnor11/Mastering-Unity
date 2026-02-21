@@ -106,6 +106,11 @@ public class AIBrain : MonoBehaviour
         return playerPos;
     }
 
+    public void LookAtPlayer()
+    {
+        transform.LookAt(CalcPlayerPos(true));
+    }
+
     public void MoveTowardsPlayer(float speed)
     {
         // перемещение в сторону игрока

@@ -55,6 +55,7 @@ public class HealthManager : MonoBehaviour
 
         if (_isDead)
         {
+            
             if (GetComponent<PlayerController>())
             {
                 GameSessionManager.Instance.OnPlayerDeath(gameObject);

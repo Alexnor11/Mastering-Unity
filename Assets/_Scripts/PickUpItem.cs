@@ -18,8 +18,19 @@ public class PickUpItem : MonoBehaviour
 
     public void OnPickeUp(GameObject whoPickeUp)
     {
-        s_objectsCollected++;
-        Debug.Log(s_objectsCollected + " items picked up");
-        Destroy(gameObject);
+        if(GetComponent<Weapon>() != null)
+        {
+            PlayerController player = whoPickeUp.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                // игрок взял в руки оружие
+                player.EquipWeapon(GetComponent<Weapon>());
+
+                // отключение сценария "подбора предметов"
+                enabled = false;
+            }
+            return;
+        }
+
     }
 }

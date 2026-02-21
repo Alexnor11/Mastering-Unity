@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Направление игрока")]
     Vector3 _curFacing = new Vector3(1, 0, 0);
 
+    [SerializeField, Tooltip("Экипированное оружие этого игрока")]
+    private Weapon _weaponEquipped = null;
+
     //Анимация
 
     bool _moveInput = false;
@@ -155,4 +158,11 @@ public class PlayerController : MonoBehaviour
         _isGrounded = Physics.CheckSphere(pos, offset);
         return _isGrounded;
     }
+
+    #region *** Оружие ***
+    public void EquipWeapon(Weapon weapon)
+    {
+        weapon.SetAttachmentParent(GameObject.Find("WEAPON_LOC"));
+    }
+    #endregion
 }

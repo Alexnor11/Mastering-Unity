@@ -129,7 +129,9 @@ public class AIBrain : MonoBehaviour
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         if (agent)
+        {
             agent.SetDestination(_playerObject.transform.position);
+        }
     }
     #endregion
 }

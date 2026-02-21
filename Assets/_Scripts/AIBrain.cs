@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class AIBrain : MonoBehaviour
 {
@@ -121,6 +121,15 @@ public class AIBrain : MonoBehaviour
         transform.position = newPos;
         // направление на игрока
         transform.LookAt(PlayerPos);
+    }
+    #endregion
+
+    #region *** NavMesh ***
+    public void MoveTowardsPlayerUsingNavMesh()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        if (agent)
+            agent.SetDestination(_playerObject.transform.position);
     }
     #endregion
 }

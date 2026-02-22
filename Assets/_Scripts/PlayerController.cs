@@ -45,6 +45,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // приостановка движения после атаки
+        if(_weaponEquipped && _weaponEquipped.IsMovmentPaused())
+        {
+            _rigidBody.velocity = Vector3.zero;
+            return;
+        }
+
         Vector3 curSpeed = _rigidBody.velocity;
 
         _moveInput = false;
@@ -88,12 +95,10 @@ public class PlayerController : MonoBehaviour
         // Выстрелить?
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            GameObject newBullet = Instantiate(_bulletToSpawn, transform.position,
-                Quaternion.identity);
-            Bullet bullet = newBullet.GetComponent<Bullet>();
-            if (bullet)
+            if (_weaponEquipped)
             {
-                bullet.SetDirection(new Vector3(_curFacing.x, 0f, _curFacing.z));
+                _weaponEquipped.onAttack(_curFacing);
+
             }
         }
 
@@ -162,6 +167,7 @@ public class PlayerController : MonoBehaviour
     #region *** Оружие ***
     public void EquipWeapon(Weapon weapon)
     {
+        _weaponEquipped = weapon;
         weapon.SetAttachmentParent(GameObject.Find("WEAPON_LOC"));
     }
     #endregion

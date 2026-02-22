@@ -38,6 +38,9 @@ public class Weapon : MonoBehaviour
     public void onAttack(Vector3 facing)
     {
         // код: обработка логики "взмах меча"
+        transform.position = transform.position + facing;
+        transform.Rotate(new Vector3(45, -90, 90));
+        _pauseMovementTimer = _pauseMovementMax;
         // код: обработать логику "выстрел из бластера"
     }
 }

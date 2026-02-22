@@ -10,8 +10,11 @@ public class HealthModifier : MonoBehaviour
 	
 	[SerializeField, Tooltip("Класс объекта, который должен быть поврежден")]	
 	DamageTarget _applyToTarget = DamageTarget.Player;
-	
-	public enum DamageTarget
+
+	[SerializeField, Tooltip("Сила отбрасывания при нанесении этого урон")]
+	float _knockbackForce = 0f;
+
+    public enum DamageTarget
 	{
 		Player,
 		Enemies,
@@ -31,9 +34,16 @@ public class HealthModifier : MonoBehaviour
         if (healthManager && IsValidTarget(hitObj))
         {
             healthManager.AdjustCurHealth(_healthChange);
+            if (_healthChange < 0 && _knockbackForce != 0)
+            {
+                Rigidbody rb = hitObj.GetComponent<Rigidbody>();
+                Debug.Log("Addiong explosive force!!!");
+                rb?.AddExplosionForce(_knockbackForce, transform.position, 10f);
+            }
             if (_destroyOnCollision)
                 GameObject.Destroy(gameObject);
         }
+
     }
 
     bool IsValidTarget(GameObject possibleTarget)

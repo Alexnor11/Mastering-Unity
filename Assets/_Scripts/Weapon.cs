@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -8,6 +9,9 @@ public class Weapon : MonoBehaviour
 	[SerializeField, Tooltip("Приостановить движение после атаки?")]
 	float _pauseMovementMax = 1.0f;
 	float _pauseMovementTimer = 0.0f;
+
+    [SerializeField, Tooltip("Снаряд для стрельбы пулями")]
+    private GameObject _bulletToSpawn;
 
     private void Update()
     {
@@ -41,6 +45,17 @@ public class Weapon : MonoBehaviour
         transform.position = transform.position + facing;
         transform.Rotate(new Vector3(45, -90, 90));
         _pauseMovementTimer = _pauseMovementMax;
-        // код: обработать логику "выстрел из бластера"
+
+        // обработка логики "оружия со снарядами"
+        if (_bulletToSpawn)
+        {
+            GameObject newBullet = Instantiate(_bulletToSpawn, transform.position, Quaternion.identity);
+            Bullet bullet = newBullet.GetComponent<Bullet>();
+            if (bullet)
+            {
+                bullet.SetDirection(new Vector3(facing.x, 0f, facing.z));
+            }
+        }
+
     }
 }

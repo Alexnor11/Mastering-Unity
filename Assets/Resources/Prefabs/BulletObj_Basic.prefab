@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthChange: -5
   _applyToTarget: 1
+  _knockbackForce: 50
   _destroyOnCollision: 0
 --- !u!114 &4687412615971077484
 MonoBehaviour:
@@ -177,3 +178,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b061839c7a047e42a365fff1dc94d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _countdownTimer: 1.5

@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5079408286684461423}
   - component: {fileID: 5459872641106302456}
+  - component: {fileID: 2604906235661858194}
   - component: {fileID: 7467557907625217536}
   - component: {fileID: 5072341247899349596}
   m_Layer: 0
@@ -220,7 +221,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -228,6 +229,33 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 2
   m_Center: {x: 0, y: 0.2, z: -0.6}
+--- !u!54 &2604906235661858194
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753141680633985133}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &7467557907625217536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b9583334bea6b44b1c312d98af8da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 0
+  _rotationSpeed: 5
 --- !u!114 &5072341247899349596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d1fa82141bbd548bdd3de200c336f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseMovementMax: 0.2
+  _bulletToSpawn: {fileID: 7447895240866456582, guid: eb8ddb488ad7e744a8c8ccb2c53e68e8, type: 3}
 --- !u!1 &5911769667743917279
 GameObject:
   m_ObjectHideFlags: 0

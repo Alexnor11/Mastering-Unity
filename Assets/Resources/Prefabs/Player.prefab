@@ -172,7 +172,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.4
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!95 &2927547364888050795
 Animator:
@@ -242,6 +242,7 @@ MonoBehaviour:
   _bulletToSpawn: {fileID: 7447895240866456582, guid: eb8ddb488ad7e744a8c8ccb2c53e68e8, type: 3}
   _isGrounded: 0
   _myCollider: {fileID: 0}
+  _weaponEquipped: {fileID: 0}
 --- !u!114 &196669586272437567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,13 +917,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6966874868979678543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.3, y: -0.5, z: 0}
+  m_LocalRotation: {x: -0.7032332, y: 0.073912784, z: 0.073912784, w: 0.7032332}
+  m_LocalPosition: {x: -0.2, y: -0.5, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3793024999088177043}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 12, z: 0}
 --- !u!1 &6987974603251995745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1140,7 @@ Transform:
   m_GameObject: {fileID: 7457318389882127583}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3110952, y: 0.18160059, z: -0.06249413, w: 0.93077147}
-  m_LocalPosition: {x: -0.43, y: -0.24, z: 0.17}
+  m_LocalPosition: {x: -0.428, y: -0.24, z: 0.177}
   m_LocalScale: {x: 0.3, y: 0.35, z: 0.24}
   m_ConstrainProportionsScale: 0
   m_Children:

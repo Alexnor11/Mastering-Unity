@@ -196,8 +196,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: -0.233}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.41344017, y: 0.3, z: 0.42481485}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7973296188758364665}
   - {fileID: 2511913145207348621}
@@ -281,8 +281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d1fa82141bbd548bdd3de200c336f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pauseMovementMax: 0.2
+  _pauseMovementMax: 0
   _bulletToSpawn: {fileID: 7447895240866456582, guid: eb8ddb488ad7e744a8c8ccb2c53e68e8, type: 3}
+  _attackAnim: SwordAttack01
 --- !u!1 &5911769667743917279
 GameObject:
   m_ObjectHideFlags: 0

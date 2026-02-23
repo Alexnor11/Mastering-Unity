@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     Collider _myCollider = null;
 
     [Tooltip("Направление игрока")]
-    Vector3 _curFacing = new Vector3(1, 0, 0);
+    Vector3 _curFacing = new Vector3(0, 0, 0);
 
     [SerializeField, Tooltip("Экипированное оружие этого игрока")]
     private Weapon _weaponEquipped = null;

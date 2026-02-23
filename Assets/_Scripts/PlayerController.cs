@@ -99,6 +99,12 @@ public class PlayerController : MonoBehaviour
             {
                 _weaponEquipped.onAttack(_curFacing);
 
+                // назначение анимации
+                if (_weaponEquipped._attackAnim != "")
+                {
+                    _myAnimator.Play(_weaponEquipped._attackAnim);
+                }
+                   
             }
         }
 

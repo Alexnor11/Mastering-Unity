@@ -13,12 +13,15 @@ public class Weapon : MonoBehaviour
     [SerializeField, Tooltip("Снаряд для стрельбы пулями")]
     private GameObject _bulletToSpawn;
 
+    [SerializeField, Tooltip("Анимация для воспроизведения при атаке")]
+    public string _attackAnim = "SwordAttack01";
+
     private void Update()
     {
         if(_pauseMovementTimer > 0f)
         {
             _pauseMovementTimer -= Time.deltaTime;
-            return; // временно
+            //return; // временно
         }
         if (_attachmentParent)
         {
@@ -41,9 +44,7 @@ public class Weapon : MonoBehaviour
 
     public void onAttack(Vector3 facing)
     {
-        // код: обработка логики "взмах меча"
-        transform.position = transform.position + facing;
-        transform.Rotate(new Vector3(45, -90, 90));
+        // приостановка движения
         _pauseMovementTimer = _pauseMovementMax;
 
         // обработка логики "оружия со снарядами"

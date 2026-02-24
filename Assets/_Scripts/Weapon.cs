@@ -16,6 +16,9 @@ public class Weapon : MonoBehaviour
     [SerializeField, Tooltip("Анимация для воспроизведения при атаке")]
     public string _attackAnim = "SwordAttack01";
 
+    [SerializeField, Tooltip("Звук, воспроизводимый при использовании оружия")]
+    public AudioClip _attackSoundFX = null;
+
     private void Update()
     {
         if(_pauseMovementTimer > 0f)
@@ -44,6 +47,9 @@ public class Weapon : MonoBehaviour
 
     public void onAttack(Vector3 facing)
     {
+        // воспроизведение звукового эффекта "attack"
+        SpawnedSoundFX.Spawn(transform.position, _attackSoundFX);
+
         // приостановка движения
         _pauseMovementTimer = _pauseMovementMax;
 

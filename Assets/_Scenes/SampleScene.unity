@@ -243,7 +243,7 @@ MonoBehaviour:
   _healthValueText: {fileID: 875399363}
   _coinValueText: {fileID: 2043038259}
   _livesValueText: {fileID: 294226757}
-  _healthManager: {fileID: 0}
+  _healthManager: {fileID: 1795717770}
 --- !u!4 &56795174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 586902462793263470, guid: 57f57dc5963a9f94eb5a2e9a1d1b351d, type: 3}
@@ -5051,6 +5051,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789941270}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1795717770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2139923403986513756, guid: fdc304bea88c84b498ed0c07aeb6df32, type: 3}
+  m_PrefabInstance: {fileID: 194365359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb78bddd4d5d0242965ea1a2dce58ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1847359794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 586902462793263470, guid: 57f57dc5963a9f94eb5a2e9a1d1b351d, type: 3}

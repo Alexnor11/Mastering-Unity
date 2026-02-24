@@ -201,6 +201,7 @@ MonoBehaviour:
   _pauseMovementMax: 0.2
   _bulletToSpawn: {fileID: 0}
   _attackAnim: SwordAttack01
+  _attackSoundFX: {fileID: 8300000, guid: 703d14ba5c736744ab5721a5ff41a125, type: 3}
 --- !u!114 &4412775735488206143
 MonoBehaviour:
   m_ObjectHideFlags: 0

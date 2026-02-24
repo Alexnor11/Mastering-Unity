@@ -17,8 +17,8 @@ public class PickUpItem : MonoBehaviour
     }
 
     public void OnPickeUp(GameObject whoPickeUp)
-    {
-        if(GetComponent<Weapon>() != null)
+    {       
+        if (GetComponent<Weapon>() != null)
         {
             PlayerController player = whoPickeUp.GetComponent<PlayerController>();
             if (player != null)
@@ -31,6 +31,13 @@ public class PickUpItem : MonoBehaviour
             }
             return;
         }
+
+        // воспроизведение звукового эффекта
+        SpawnedSoundFX.Spawn(transform.position);
+        
+        s_objectsCollected++;
+        Debug.Log(s_objectsCollected + " items picked up.");
+        Destroy(gameObject);
 
     }
 }

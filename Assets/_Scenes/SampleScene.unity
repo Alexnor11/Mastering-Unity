@@ -3222,7 +3222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406afa171ae7b354984cf421f53cc0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camTarget: {fileID: 0}
+  _camTarget: {fileID: 1216202053}
   _targetOffset: {x: 0, y: 0, z: 0}
   _camHeigth: 7
   _camDistance: -7
@@ -3853,6 +3853,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156947747}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1216202053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6793390420463179541, guid: fdc304bea88c84b498ed0c07aeb6df32, type: 3}
+  m_PrefabInstance: {fileID: 194365359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1246402355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5056,7 +5061,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2139923403986513756, guid: fdc304bea88c84b498ed0c07aeb6df32, type: 3}
   m_PrefabInstance: {fileID: 194365359}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1216202053}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbb78bddd4d5d0242965ea1a2dce58ff, type: 3}

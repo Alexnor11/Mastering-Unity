@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
   shutterAngle:
-    overrideState: 0
+    overrideState: 1
     value: 270
   sampleCount:
-    overrideState: 0
+    overrideState: 1
     value: 10
 --- !u!114 &-4998321429165709090
 MonoBehaviour:
@@ -46,7 +46,7 @@ MonoBehaviour:
     value: 12
   focalLength:
     overrideState: 1
-    value: 128
+    value: 190
   kernelSize:
     overrideState: 1
     value: 2

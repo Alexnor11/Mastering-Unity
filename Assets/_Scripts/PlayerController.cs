@@ -134,12 +134,24 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<PickUpItem>())
+        // Кэшируем результат GetComponent
+        PickUpItem item = other.GetComponent<PickUpItem>();
+        
+        if (item == null || item.hasBeenPickedUp)
         {
-            PickUpItem item = other.gameObject.GetComponent<PickUpItem>();
-            item.OnPickeUp(this.gameObject);
+            return;
         }
+        item.OnPickUp(gameObject);
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.GetComponent<PickUpItem>())
+    //    {
+    //        PickUpItem item = other.gameObject.GetComponent<PickUpItem>();
+    //        item.OnPickUp(gameObject);
+    //    }
+    //}
 
     void UpdateAnimation()
     {

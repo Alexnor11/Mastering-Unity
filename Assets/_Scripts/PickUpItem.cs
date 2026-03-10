@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
 {
+    public bool hasBeenPickedUp = false;
+
     [SerializeField, Tooltip("Скорость вращения")]
     private float _rotationSpeed;
-    
+
     public static int s_objectsCollected = 0;
 
     private void Update()
@@ -16,25 +18,29 @@ public class PickUpItem : MonoBehaviour
         transform.eulerAngles = newRotation;
     }
 
-    public void OnPickeUp(GameObject whoPickeUp)
-    {       
+    public void OnPickUp(GameObject whoPickeUp)
+    {
         if (GetComponent<Weapon>() != null)
         {
+            if (hasBeenPickedUp) return;
+
+            Weapon weapon = GetComponent<Weapon>();
             PlayerController player = whoPickeUp.GetComponent<PlayerController>();
-            if (player != null)
+
+            if (weapon != null && player != null)
             {
                 // игрок взял в руки оружие
-                player.EquipWeapon(GetComponent<Weapon>());
-
-                // отключение сценария "подбора предметов"
+                player.EquipWeapon(weapon);
+                hasBeenPickedUp = true;
+                // отключение сценария "подбора предметов"                         
                 enabled = false;
             }
             return;
-        }
+        }        
 
         // воспроизведение звукового эффекта
         SpawnedSoundFX.Spawn(transform.position);
-        
+
         s_objectsCollected++;
         Debug.Log(s_objectsCollected + " items picked up.");
         Destroy(gameObject);

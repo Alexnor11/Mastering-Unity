@@ -627,6 +627,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa07d56adf445a6459b0b72043ae2051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultActions:
+    m_PersistentCalls:
+      m_Calls: []
+  _alertedActions:
+    m_PersistentCalls:
+      m_Calls: []
+  _huntActions:
+    m_PersistentCalls:
+      m_Calls: []
+  _miscPattern1Actions:
+    m_PersistentCalls:
+      m_Calls: []
+  _miscPattern2Actions:
+    m_PersistentCalls:
+      m_Calls: []
+  _miscPattern3Actions:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7368498568096626976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,6 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthChange: -5
   _applyToTarget: 0
+  _knockbackForce: 0
   _destroyOnCollision: 0
 --- !u!114 &-901204700434543341
 MonoBehaviour:

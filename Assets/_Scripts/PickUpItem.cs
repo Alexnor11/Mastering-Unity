@@ -30,8 +30,7 @@ public class PickUpItem : MonoBehaviour
             if (weapon != null && player != null)
             {
                 // игрок взял в руки оружие
-                player.EquipWeapon(weapon);
-                hasBeenPickedUp = true;
+                player.EquipWeapon(weapon);                
                 // отключение сценария "подбора предметов"                         
                 enabled = false;
             }

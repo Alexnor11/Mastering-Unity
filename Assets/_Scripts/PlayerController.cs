@@ -136,8 +136,8 @@ public class PlayerController : MonoBehaviour
     {
         // Кэшируем результат GetComponent
         PickUpItem item = other.GetComponent<PickUpItem>();
-        
-        if (item == null || item.hasBeenPickedUp)
+
+        if (item == null)
         {
             return;
         }
